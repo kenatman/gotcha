@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.header`
@@ -24,6 +24,9 @@ const Item = styled.li`
   width: 120px;
   height: 50px;
   text-align: center;
+  transition: border-bottom 0.5s ease-in-out;
+  border-bottom: 4px solid
+    ${(props) => (props.current ? "#e84393" : "transparent")};
 `;
 
 const SLink = styled(Link)`
@@ -41,24 +44,24 @@ const SLinkLogo = styled(SLink)`
   font-size: 20px;
 `;
 
-class Header extends Component {
-  render() {
-    return (
-      <Nav>
-        <List>
-          <Item>
-            <SLinkLogo to="/">Gotcha!!</SLinkLogo>
-          </Item>
-          <Item>
-            <SLink to="/tv">TV</SLink>
-          </Item>
-          <Item>
-            <SLink to="/search">Search</SLink>
-          </Item>
-        </List>
-      </Nav>
-    );
-  }
-}
+const Header = (props) => {
+  const { pathname } = props.location;
 
-export default Header;
+  return (
+    <Nav>
+      <List>
+        <Item current={pathname === "/"}>
+          <SLinkLogo to="/">Gotcha!!</SLinkLogo>
+        </Item>
+        <Item current={pathname === "/tv"}>
+          <SLink to="/tv">TV</SLink>
+        </Item>
+        <Item current={pathname === "/search"}>
+          <SLink to="/search">Search</SLink>
+        </Item>
+      </List>
+    </Nav>
+  );
+};
+
+export default withRouter(Header);
