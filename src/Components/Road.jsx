@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Home from "../Screens/Home";
-import TV from "../Screens/TV";
-import Search from "../Screens/Search";
+import Home from "../Routes/Home";
+import TV from "../Routes/TV";
+import Search from "../Routes/Search";
+import Header from "./Header.jsx";
 
 class Road extends Component {
   render() {
     return (
       <BrowserRouter>
+        <Header />
         {/* Switch의 역할 : 한번에 하나의 Route만 렌더링하게 해줌. */}
         <Switch>
           <Route exact path="/" component={Home} />
