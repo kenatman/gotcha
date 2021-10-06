@@ -2,8 +2,24 @@ import React, { Component } from "react";
 import HomePresenter from "./HomePresenter";
 
 class HomeContainer extends Component {
+  state = {
+    nowPlaying: null,
+    upcoming: null,
+    popular: null,
+    error: null,
+    loading: true,
+  };
   render() {
-    return <HomePresenter />;
+    const { nowPlaying, upcoming, popular, error, loading } = this.state;
+    return (
+      <HomePresenter
+        nowPlaying={nowPlaying}
+        upcoming={upcoming}
+        popular={popular}
+        error={error}
+        loading={loading}
+      />
+    );
   }
 }
 
