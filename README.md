@@ -9,8 +9,11 @@
 
 ### API
 
-- [ ] Now Playing(Movie, TV)
-- [ ] Upcoming(Movie)
-- [ ] Top rated(Movie, TV)
-- [ ] Popular(Movie, TV)
-- [ ] Airing Today(TV)
+- [x] Now Playing(Movie)
+- [x] Upcoming(Movie)
+- [x] Top rated(TV)
+- [x] Popular(Movie, TV)
+- [x] Airing Today(TV)
+- [x] Searching(Movie, TV)
+- [x] TV show detail
+- [x] Movie detail
