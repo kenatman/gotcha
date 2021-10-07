@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { movieApi } from "../../api";
 import HomePresenter from "./HomePresenter";
 
 class HomeContainer extends Component {
@@ -9,8 +10,32 @@ class HomeContainer extends Component {
     error: null,
     loading: true,
   };
+
+  async componentDidMount() {
+    try {
+      const {
+        data: { results: nowPlaying },
+      } = await movieApi.nowPlaying();
+
+      const {
+        data: { results: upcoming },
+      } = await movieApi.upcoming();
+
+      const {
+        data: { results: popular },
+      } = await movieApi.popular();
+
+      this.setState({ nowPlaying, upcoming, popular });
+    } catch {
+      this.setState({ error: "Can not get movies.. plz check again." });
+    } finally {
+      this.setState({ loading: false });
+    }
+  }
+
   render() {
     const { nowPlaying, upcoming, popular, error, loading } = this.state;
+
     return (
       <HomePresenter
         nowPlaying={nowPlaying}
