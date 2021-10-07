@@ -9,6 +9,7 @@ class SearchContainer extends Component {
     loading: false,
     error: null,
   };
+
   render() {
     const { movieResults, tvResults, searchTerm, loading, error } = this.state;
     return (
