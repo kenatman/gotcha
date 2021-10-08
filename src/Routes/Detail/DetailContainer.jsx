@@ -36,6 +36,7 @@ class DetailContainer extends Component {
     let result = null;
     try {
       if (isMovie) {
+        // how to use destructuring with let.()
         ({ data: result } = await movieApi.detail(numberedId));
       } else {
         ({ data: result } = await tvApi.detail(numberedId));
@@ -49,7 +50,6 @@ class DetailContainer extends Component {
 
   render() {
     const { result, error, loading } = this.state;
-    console.log(this.state);
     return <DetailPresenter result={result} error={error} loading={loading} />;
   }
 }
