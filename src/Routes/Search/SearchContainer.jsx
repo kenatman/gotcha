@@ -43,7 +43,7 @@ class SearchContainer extends Component {
 
   render() {
     const { movieResults, tvResults, searchTerm, loading, error } = this.state;
-    console.log(this.state);
+
     return (
       <SearchPresenter
         movieResults={movieResults}
