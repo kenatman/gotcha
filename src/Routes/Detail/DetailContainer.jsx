@@ -5,6 +5,10 @@ import DetailPresenter from "./DetailPresenter";
 class DetailContainer extends Component {
   constructor(props) {
     super(props);
+
+    // 변수선언을 this로 하는 것과 const로 하는 것의 차이.
+    // this.pathname 으로 선언하면 다른 메소드에서 참조하여 사용가능. 오브젝트가 생성됨.
+    // 반면 const 로 선언하면 constructor 안에서만 사용하고 끝날 것 같으면 이렇게 사용하는게 간단.
     const {
       location: { pathname },
     } = props;
