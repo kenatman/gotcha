@@ -36,11 +36,9 @@ class DetailContainer extends Component {
     let result = null;
     try {
       if (isMovie) {
-        const request = await movieApi.detail(numberedId);
-        result = request.data;
+        ({ data: result } = await movieApi.detail(numberedId));
       } else {
-        const request = await tvApi.detail(numberedId);
-        result = request.data;
+        ({ data: result } = await tvApi.detail(numberedId));
       }
     } catch {
       this.setState({ error: "Can not get Detail..." });
