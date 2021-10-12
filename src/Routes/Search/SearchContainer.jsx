@@ -6,20 +6,22 @@ class SearchContainer extends Component {
   state = {
     movieResults: null,
     tvResults: null,
-    searchTerm: "bts",
+    searchTerm: "",
     loading: false,
     error: null,
   };
 
-  componentDidMount() {
-    this.handleSubmit();
-  }
+  handleChange = (e) => {
+    this.setState({ searchTerm: e.target.value });
+  };
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.goSearch();
     }
+    this.setState({ searchTerm: "" });
   };
 
   goSearch = async () => {
@@ -52,6 +54,7 @@ class SearchContainer extends Component {
         loading={loading}
         error={error}
         onSubmit={this.handleSubmit}
+        onChange={this.handleChange}
       />
     );
   }
