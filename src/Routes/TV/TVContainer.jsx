@@ -22,6 +22,7 @@ class TVContainer extends Component {
       const {
         data: { results: airingToday },
       } = await tvApi.airingToday();
+
       this.setState({ topRated, popular, airingToday });
     } catch {
       this.setState({ error: "Can not get TV data.. plz check apis.." });

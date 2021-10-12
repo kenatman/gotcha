@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "../../Components/Loader";
 import Section from "../../Components/Section";
+import Message from "../../Components/Message";
 
 const Container = styled.div`
   padding: 0 10px;
@@ -32,6 +33,7 @@ const TVPresenter = ({ topRated, popular, airingToday, error, loading }) => {
           {[airingToday.map((tv) => <span key={tv.id}>{tv.name}</span>)]}
         </Section>
       )}
+      {error && <Message text={error} color="#e84393" />}
     </Container>
   );
 };

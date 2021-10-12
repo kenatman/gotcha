@@ -24,7 +24,6 @@ class HomeContainer extends Component {
       const {
         data: { results: popular },
       } = await movieApi.popular();
-
       this.setState({ nowPlaying, upcoming, popular });
     } catch {
       this.setState({ error: "Can not get movies.. plz check again." });

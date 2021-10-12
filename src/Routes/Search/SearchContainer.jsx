@@ -37,7 +37,7 @@ class SearchContainer extends Component {
 
       this.setState({ movieResults, tvResults });
     } catch {
-      this.setState({ error: "Can not search movies.tvs..." });
+      this.setState({ error: "Can not search movies and tvs..." });
     } finally {
       this.setState({ loading: false });
     }
