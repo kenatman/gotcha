@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Loader from "../../Components/Loader";
 import Message from "../../Components/Message";
 
@@ -75,9 +76,21 @@ const Overview = styled.p`
 
 const DetailPresenter = ({ result, error, loading }) => {
   return loading ? (
-    <Loader />
+    <>
+      {" "}
+      <Helmet>
+        <title>Loading... | Gotcha!!</title>
+      </Helmet>
+      <Loader />
+    </>
   ) : (
     <Container>
+      <Helmet>
+        <title>
+          {result.original_title ? result.original_title : result.original_name}{" "}
+          | Gotcha!!
+        </title>
+      </Helmet>
       {result && (
         <>
           <Backdrop
