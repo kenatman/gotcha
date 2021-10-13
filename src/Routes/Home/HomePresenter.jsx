@@ -7,7 +7,7 @@ import Message from "../../Components/Message";
 import Poster from "../../Components/Poster";
 
 const Container = styled.div`
-  padding: 0 10px;
+  padding: 20px;
 `;
 
 // html태그 안에서 js코드 쓸 때만 {} 사용.

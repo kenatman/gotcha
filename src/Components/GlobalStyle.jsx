@@ -13,7 +13,7 @@ body{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
 font-size:12px;
 background-color: #353b48;
 color: white;
-padding-top:70px;
+padding-top:50px;
 padding-left:10px;
 
 }
