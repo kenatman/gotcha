@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
+import { Link } from "react-router-dom";
 import Loader from "../../Components/Loader";
 import Message from "../../Components/Message";
 
@@ -47,6 +48,7 @@ const Data = styled.div`
   width: 70%;
   margin-left: 30px;
   padding-top: 10px;
+  position: relative;
 `;
 
 const Title = styled.h2`
@@ -72,6 +74,19 @@ const Overview = styled.p`
   width: 70%;
   line-height: 1.4;
   opacity: 0.8;
+`;
+
+const TrailerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  position: absolute;
+  bottom: 20px;
+  opacity: 0.7;
+`;
+
+const Trailer = styled.a`
+  line-height: 2;
 `;
 
 const DetailPresenter = ({ result, error, loading }) => {
@@ -132,6 +147,18 @@ const DetailPresenter = ({ result, error, loading }) => {
                 </Item>
               </ItemContainer>
               <Overview>{result.overview}</Overview>
+              <TrailerContainer>
+                {result.videos.results.map(
+                  (video) =>
+                    video.site === "YouTube" && (
+                      <Trailer
+                        href={`https://www.youtube.com/watch?v=${video.key}`}
+                      >
+                        <i className="fab fa-youtube"></i> {video.name}
+                      </Trailer>
+                    )
+                )}
+              </TrailerContainer>
             </Data>
           </Content>
         </>
