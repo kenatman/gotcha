@@ -48,6 +48,8 @@ const Data = styled.div`
   margin-left: 30px;
   padding-top: 10px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.h2`
@@ -76,12 +78,13 @@ const Overview = styled.p`
 `;
 
 const TrailerContainer = styled.div`
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  position: absolute;
   bottom: 20px;
   opacity: 0.7;
+  overflow-y: auto;
 `;
 
 const Trailer = styled.a`
